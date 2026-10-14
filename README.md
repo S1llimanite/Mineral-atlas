@@ -10,6 +10,27 @@
 
 ---
 
+## 快速开始 / Quick Start
+
+**环境要求**：只需安装 [Node.js](https://nodejs.org) 20 或更高版本（LTS 版即可），
+无需数据库、无需 Blender、无需 Python。
+
+```bash
+git clone https://github.com/S1llimanite/Mineral-atlas.git
+cd Mineral-atlas
+npm install        # 安装依赖（首次运行前执行一次）
+npm run build      # 构建生产版本
+npm start          # 启动 → 浏览器打开 http://localhost:3000
+```
+
+不熟悉命令行？请看仓库根目录的 **[启动说明.txt](启动说明.txt)** ——
+为零基础用户准备的中文分步指南（含下载 ZIP 方式与常见问题解答）。
+
+> 开发模式：`npm run dev`（热更新，无需反复 build）
+> 国内 npm 加速：`npm config set registry https://registry.npmmirror.com`
+
+---
+
 ## 功能亮点
 
 ### 1. 薄片鉴定图像交互（核心功能）
@@ -162,19 +183,8 @@ mineral-atlas/
 
 ## 启动方式
 
-```bash
-# 1. 安装依赖（Node 20+）
-npm install
-
-# 2. 生产构建 + 启动（推荐）
-npm run build
-npm start
-
-# 浏览器访问 http://localhost:3000
-
-# 开发模式
-npm run dev
-```
+见顶部 **[快速开始](#快速开始--quick-start)** 一节；零基础用户请看
+**[启动说明.txt](启动说明.txt)** 分步指南。
 
 ## 主要页面
 
