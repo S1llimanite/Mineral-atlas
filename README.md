@@ -321,3 +321,5 @@ python blender/check_assets.py
 
 欢迎 Issue 与 PR：新增矿物数据请使用 `src/data/minerals/helper.ts` 的 `M()` 构造器，
 并附上可追溯的资料来源；数据必须通过 `npm test` 的完整性校验。
+责任人：outlook_6A34DF8FA3456AD8@outlook.com
+问题咨询：QQ：3561509121
