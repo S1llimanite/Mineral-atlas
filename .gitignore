@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+.env.local
+.env.*.local
+*.log
+.DS_Store
+public/models/*.glb
+!public/models/.gitkeep
+blender/output/*.blend
+blender/output/*.glb
+__pycache__/
+*.pyc
+coverage/
+tsconfig.tsbuildinfo
+_preview/
+_pdf_preview/

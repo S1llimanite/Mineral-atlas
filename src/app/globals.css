@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Mineral Gallery Light · 浅色主题 v0.4（默认）
+   深色 Deep Crystal 作为 alternate 主题（data-theme="dark"）
+   文本可读性：所有文字与背景对比度 ≥ WCAG AA
+   ============================================================ */
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* 基底（米白/宣纸系） */
+  --bg: #F7F6F2;
+  --bg-card: #FFFFFF;
+  --bg-section: #F0F4F1;
+  --bg-hover: #F5F7F4;
+  --bg-input: #FFFFFF;
+
+  /* 边框（极淡） */
+  --border: rgba(0, 0, 0, 0.07);
+  --border-2: rgba(0, 0, 0, 0.12);
+
+  /* 文字（高对比） */
+  --ink: #1A1F1C;
+  --ink-mid: #4A554E;
+  --ink-faint: #7A857C;
+
+  /* 强调色：祖母绿 + 薄荷绿 + 琥珀金 */
+  --primary: #2F6B5A;
+  --primary-2: #5B9A8B;
+  --accent: #C4A35A;
+
+  /* 状态色 */
+  --st-verified: #2F8F5A;
+  --st-reviewed: #2F6B9E;
+  --st-provisional: #B58A20;
+  --st-schematic: #C46A2A;
+  --st-draft: #6A7570;
+  --st-missing: #B85A4A;
+
+  /* 阴影 */
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  --shadow-2: 0 4px 24px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  --shadow-3: 0 10px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
+
+  --theme-transition: background-color 320ms cubic-bezier(0.16, 1, 0.3, 1),
+                     color 320ms cubic-bezier(0.16, 1, 0.3, 1),
+                     border-color 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 深色主题（alternate） */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0F1218;
+  --bg-card: #181C24;
+  --bg-section: #141822;
+  --bg-hover: #1C212B;
+  --bg-input: #1A1F29;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-2: rgba(255, 255, 255, 0.12);
+  --ink: #F1F4F8;
+  --ink-mid: #A8B2C1;
+  --ink-faint: #7A8494;
+  --primary: #7EB8FF;
+  --primary-2: #3AA89A;
+  --accent: #D4AF37;
+  --st-verified: #5EE38F;
+  --st-reviewed: #7EB8FF;
+  --st-provisional: #FBBF24;
+  --st-schematic: #FB923C;
+  --st-draft: #A8B2C1;
+  --st-missing: #F87171;
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.02);
+  --shadow-2: 0 4px 24px rgba(0, 0, 0, 0.45), 0 0 24px rgba(126, 184, 255, 0.06);
+  --shadow-3: 0 10px 40px rgba(0, 0, 0, 0.55), 0 0 28px rgba(126, 184, 255, 0.10);
+}
+
+/* 页面级氛围微调 */
+html[data-page="focus"] { --bg-section: #FBFAF5; --bg-hover: #EFEEE7; }
+html[data-page="lab"] { --bg-section: #EAF2EC; }
+html[data-page="neutral"] { --bg-section: #F0F4F1; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: var(--theme-transition);
+}
+body { background: var(--bg); }
+
+::selection { background: rgba(47, 107, 90, 0.18); color: var(--ink); }
+[data-theme="dark"] ::selection { background: rgba(126, 184, 255, 0.28); color: var(--ink); }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.12); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 0, 0, 0.20); }
+[data-theme="dark"] ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); }
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.20); }
+
+a { color: inherit; text-decoration: none; }
+
+@layer components {
+  .panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+    box-shadow: var(--shadow-1);
+    transition: var(--theme-transition);
+  }
+  .panel-raised {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 0.875rem;
+    box-shadow: var(--shadow-2);
+    transition: var(--theme-transition);
+  }
+  .panel-float {
+    background: var(--bg-card);
+    border: 1px solid var(--border-2);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-3);
+  }
+
+  .badge { @apply inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[10px] font-mono uppercase tracking-wider border; }
+  .badge-verified    { color: var(--st-verified); border-color: color-mix(in srgb, var(--st-verified) 30%, transparent); background: color-mix(in srgb, var(--st-verified) 8%, transparent); }
+  .badge-reviewed    { color: var(--st-reviewed); border-color: color-mix(in srgb, var(--st-reviewed) 30%, transparent); background: color-mix(in srgb, var(--st-reviewed) 8%, transparent); }
+  .badge-provisional { color: var(--st-provisional); border-color: color-mix(in srgb, var(--st-provisional) 30%, transparent); background: color-mix(in srgb, var(--st-provisional) 8%, transparent); }
+  .badge-schematic   { color: var(--st-schematic); border-color: color-mix(in srgb, var(--st-schematic) 30%, transparent); background: color-mix(in srgb, var(--st-schematic) 8%, transparent); }
+  .badge-draft       { color: var(--st-draft); border-color: color-mix(in srgb, var(--st-draft) 25%, transparent); background: color-mix(in srgb, var(--st-draft) 6%, transparent); }
+  .badge-missing     { color: var(--st-missing); border-color: color-mix(in srgb, var(--st-missing) 30%, transparent); background: color-mix(in srgb, var(--st-missing) 8%, transparent); }
+
+  .chip {
+    @apply inline-flex items-center px-2.5 py-0.5 text-[11.5px] rounded-full;
+    background: color-mix(in srgb, var(--primary-2) 12%, transparent);
+    color: var(--ink);
+    border: 1px solid color-mix(in srgb, var(--primary-2) 22%, transparent);
+    transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .chip-hover:hover { background: color-mix(in srgb, var(--primary-2) 22%, transparent); color: var(--primary); }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-[13.5px] font-medium rounded-lg;
+    background: var(--primary);
+    color: #FFFFFF;
+    border: 1px solid color-mix(in srgb, #000 12%, var(--primary));
+    box-shadow: 0 1px 2px color-mix(in srgb, var(--primary) 30%, transparent);
+    transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-primary:hover {
+    background: color-mix(in srgb, #000 8%, var(--primary));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--primary) 30%, transparent);
+  }
+  [data-theme="dark"] .btn-primary { color: #0A0C10; }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-[13.5px] font-medium rounded-lg;
+    background: var(--bg-card);
+    color: var(--ink);
+    border: 1px solid var(--border-2);
+    transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-ghost:hover { background: var(--bg-hover); border-color: color-mix(in srgb, var(--primary) 35%, transparent); }
+
+  .input {
+    @apply px-3.5 py-2 text-[14px] rounded-lg;
+    background: var(--bg-input);
+    border: 1px solid var(--border-2);
+    color: var(--ink);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+    transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .input::placeholder { color: var(--ink-faint); }
+  .input:focus {
+    outline: none;
+    border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent), inset 0 1px 2px rgba(0, 0, 0, 0.02);
+  }
+
+  table.sci-table { @apply w-full text-[13.5px] border-collapse; }
+  table.sci-table thead { background: var(--bg-section); }
+  table.sci-table th {
+    @apply border-b px-3 py-2.5 text-right align-top font-medium whitespace-nowrap w-[34%] text-[11.5px] tracking-wide;
+    border-color: var(--border-2);
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  table.sci-table td {
+    @apply border-b px-3 py-2.5 align-top leading-relaxed;
+    border-color: var(--border);
+    color: var(--ink);
+  }
+  table.sci-table tbody tr:nth-child(even) { background: color-mix(in srgb, var(--bg-section) 60%, transparent); }
+  table.sci-table tbody tr:hover { background: color-mix(in srgb, var(--primary-2) 8%, transparent); }
+
+  .section-title { @apply flex items-baseline gap-2.5 pb-2 mb-4; border-bottom: 1px solid var(--border); }
+  .section-title .idx { @apply text-[10px] font-mono; color: var(--ink-faint); }
+  .section-title .txt { @apply text-[16px] font-serif font-medium; color: var(--ink); }
+  .section-title .sub { @apply text-[10px] font-mono tracking-[0.18em] uppercase; color: var(--ink-faint); }
+
+  .microscope-field {
+    border: 1px solid var(--border-2);
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--bg) 60%, transparent),
+      inset 0 2px 24px rgba(0, 0, 0, 0.06),
+      0 0 0 4px var(--bg-card),
+      0 6px 32px color-mix(in srgb, var(--primary) 6%, transparent);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: #06070A;
+  }
+
+  .display-title {
+    font-family: 'Noto Serif SC', 'Source Han Serif SC', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+}
+
+.page-enter { animation: fadeUp 0.5s cubic-bezier(0.16,1,0.3,1) both; }
+@keyframes fadeUp { 0% { opacity: 0; transform: translateY(12px); } 100% { opacity: 1; transform: translateY(0); } }
+.lift-on-hover { transition: transform 320ms cubic-bezier(0.16,1,0.3,1), box-shadow 320ms cubic-bezier(0.16,1,0.3,1); }
+.lift-on-hover:hover { transform: translateY(-2px); }
