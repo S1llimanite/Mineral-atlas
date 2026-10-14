@@ -1,0 +1,71 @@
+========================================
+  薄片矿物数字图鉴 - 启动说明
+  Petrographic Mineral Atlas
+  https://github.com/S1llimanite/Mineral-atlas
+========================================
+
+【第一步：安装 Node.js】（只需一次）
+
+  1. 打开官网：https://nodejs.org
+  2. 下载带 "LTS" 字样的版本，双击安装，一路点"下一步"即可
+  3. 安装完成后不用做任何设置
+
+
+【第二步：获取项目】（只需一次）
+
+  方式一（推荐）：在项目文件夹里打开终端（PowerShell），输入：
+      git clone https://github.com/S1llimanite/Mineral-atlas.git
+
+  方式二（不会用 git）：打开项目网页 → 绿色 Code 按钮 → Download ZIP
+      → 下载后解压到任意位置
+
+
+【第三步：安装依赖】（只需一次，约 1-2 分钟）
+
+  1. 打开终端（PowerShell）
+  2. 进入项目文件夹，例如：
+      cd Mineral-atlas
+  3. 输入：
+      npm install
+     （如果很慢或失败，先执行下面这句再重试：
+      npm config set registry https://registry.npmmirror.com ）
+
+
+【第四步：启动】
+
+  在项目文件夹的终端里输入：
+      npm run build
+      npm start
+
+  然后用浏览器打开： http://localhost:3000
+
+  看到首页就成功了！
+
+
+========================================
+  日常使用
+========================================
+
+  * 以后每次想打开网站：进入项目文件夹，输入 npm start 即可
+  * 关闭网站：直接关掉终端窗口
+  * 修改了代码后想看效果：重新执行 npm run build 再 npm start
+  * 开发/改代码推荐用：npm run dev （改完自动刷新，不用 build）
+
+
+========================================
+  常见问题
+========================================
+
+  Q1：提示 "npm 不是内部或外部命令"？
+      → Node.js 没装好，重新安装或重启电脑再试
+
+  Q2：npm install 很慢或报错？
+      → 先执行：npm config set registry https://registry.npmmirror.com
+        再重新 npm install
+
+  Q3：提示 3000 端口被占用？
+      → 说明已经有一个在运行，直接开浏览器访问
+        http://localhost:3000 即可
+
+  Q4：浏览器打开是空白或报错？
+      → 换 Chrome / Edge 等现代浏览器（3D 功能需要 WebGL 支持）
